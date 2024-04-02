@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS trail_db
+
+CREATE DATABASE trail_db
