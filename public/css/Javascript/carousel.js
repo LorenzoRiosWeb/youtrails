@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let slideIndex = 0;
+    let slideIndex = 1;
     const slides = document.getElementsByClassName("mySlides");
   
     function showSlides() {
