@@ -1,0 +1,94 @@
+/* Navbar Styles */
+.navbar-menu {
+    background-color: rgb(159, 49, 223);
+    padding: 10px;
+}
+
+a.navbar-item {
+    color: rgb(241, 239, 239);
+    font-size: 20px;
+    text-align: center;
+}
+
+a.navbar-item:hover {
+    color: white;
+    transition: .2s; /* Added 's' for seconds */
+    border-radius: 10px;
+    background-color: rgb(182, 124, 216);
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+/* Carousel Styles */
+.carousel-container{
+    width: 100%;
+    height: 1100px;
+    overflow: hidden;
+    position: relative;
+}
+.mySlides{
+    width: 100%;
+    height: 100%;
+
+}
+.mySlides img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-menu {
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column; /* Change navbar items to stack vertically */
+        align-items: center; /* Center align navbar items */
+    }
+
+    .navbar-item {
+        font-size: 16px; /* Decrease font size for smaller screens */
+        order: 3; /* Change order to place navbar items below greetings/profile */
+    }
+
+    .greetings,
+    .profile {
+        display: block; /* Change greetings and profile to stack vertically */
+        font-size: 18px; /* Decrease font size for smaller screens */
+        order: 1; /* Change order to place greetings/profile above navbar items */
+    }
+
+    .carousel-container {
+        height: 600px; /* Adjust carousel height for smaller screens */
+    }
+}
+
+/* Login Container Styles */
+.login-container {
+    position: absolute;
+}
+
+.overlay {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.199); /* Adjust the transparency here */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15%;
+}
+
+.overlay .columns {
+    margin: 0;
+}
+
+.button {
+    color: white;
+    background-color: rgb(159, 49, 223);
+}
