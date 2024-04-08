@@ -32,4 +32,9 @@ Comments.belongsTo(Review, {
     onDelete: 'CASCADE'
 });
 
+Review.hasMany(Comments, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
 module.exports = { User, Trails, Review, Comments };
