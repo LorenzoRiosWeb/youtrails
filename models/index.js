@@ -1,4 +1,4 @@
-const User = require('./');
+const User = require('./User');
 const Trails = require('./Trails');
 const Review = require('./Review');
 const Comments = require('./Comments');

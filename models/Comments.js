@@ -41,4 +41,4 @@ Comments.init(
     }
 );
 
-module.exports = Project;
+module.exports = Comments;
