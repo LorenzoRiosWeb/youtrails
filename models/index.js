@@ -14,13 +14,10 @@ Review.belongsTo(Trails, {
     onDelete: 'CASCADE'
 });
 
-// User.hasOne(id, {
-//     foreignKey: 'user_id'  
-// });
-
-// id.belongsTo(User, {
-//     foreignKey: 'user_id'
-// });
+User.hasOne(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
 
 Review.belongsTo(User, {
     foreignKey: 'user_id',
