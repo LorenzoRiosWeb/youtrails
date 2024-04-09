@@ -3,6 +3,7 @@ const Trails = require('./Trails');
 const Review = require('./Review');
 const Comments = require('./Comments');
 
+
 Trails.hasMany(Review, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
@@ -13,9 +14,13 @@ Review.belongsTo(Trails, {
     onDelete: 'CASCADE'
 });
 
-User.hasOne(id, {
-    foreignKey: 'user_id'  
-});
+// User.hasOne(id, {
+//     foreignKey: 'user_id'  
+// });
+
+// id.belongsTo(User, {
+//     foreignKey: 'user_id'
+// });
 
 Review.belongsTo(User, {
     foreignKey: 'user_id',
