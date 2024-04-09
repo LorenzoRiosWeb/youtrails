@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const sequelize = require('./Review');
+const Review = require('./Review');
 
 class Trails extends Model { }
 
@@ -30,4 +30,11 @@ Trails.init(
             type: DataTypes.STRING,
         }
     },
+    {
+        sequelize,
+        freezeTableName: true,
+        modelName: 'trails'
+    }
 );
+
+module.exports = Trails;
