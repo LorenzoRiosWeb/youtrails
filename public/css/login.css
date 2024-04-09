@@ -25,8 +25,8 @@ a.navbar-item:hover{
   .overlay {
     position: absolute;
     top: 20%;
-    left: 25%;
-    width: 50%;
+    left: 15%;
+    width: 75%;
     height: 50%;
     background-color: rgba(255, 255, 255, 0.199); /* Adjust the transparency here */
     display: flex;
