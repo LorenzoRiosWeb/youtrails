@@ -34,9 +34,9 @@
     },
     {
         "trail_name": "Broads Fork Twin Peaks",
-        "description": "",
+        "description": "This trail starts near the Solitude resort, it takes you through meadows, there are many jagged peaks.",
         "location": "Big Cottonwood Canyon",
-        "conditions": "",
+        "conditions": "Snowy AF",
         "review": [{"name": "Patrick",
                     "description": "Nice",
                     "date_created": "06/29/23",
@@ -70,10 +70,10 @@
         "description": "Near the Snow Basin ski area, this trail is a great hike for families. It features a stream, and towering cliffs",
         "location": "Huntsville",
         "conditions": "Still damp from snow",
-        "review": [{"name": "",
-                    "description": "",
-                    "date_created": "",
-                    "body": "" 
+        "review": [{"name": "Jeff",
+                    "description": "YAY",
+                    "date_created": "07/22/23",
+                    "body": "This trail is really really really fun." 
                     }]
     },
     {
@@ -81,9 +81,9 @@
         "description": "This is a moderate trail, about 9 miles out and back. It gradually ascends up the canyon as you encounter pine forest and meadows. The lake is in a bowl surrounded by towering peaks.",
         "location": "High Uintas Wilderness",
         "conditions": "Snowy yo",
-        "review": [{"name": "Erin",
-                    "description": "",
-                    "date_created": "",
+        "review": [{"name": "Sarah",
+                    "description": "Fun stuff",
+                    "date_created": "07/28/23",
                     "body": "Amethyst Lake is absolutely stunning!" 
                     }]
     }
