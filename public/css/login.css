@@ -21,6 +21,21 @@ a.navbar-item:hover{
 .login-container {
     position: absolute;
   }
+
+.login-form.box{
+  position: absolute;
+  width: 40%;
+  top: 50%;
+  left:25%;
+  transform: translate(-50%, -50%);
+}
+.signup-form.box{
+  position: absolute;
+  width: 40%;
+  top: 50%;
+  left:75%;
+  transform: translate(-50%, -50%);
+}
   
   .overlay {
     position: absolute;
