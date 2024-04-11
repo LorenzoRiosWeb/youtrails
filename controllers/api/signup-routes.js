@@ -1,15 +1,19 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
-    // Extract user input from request body
+    // Validate request body
     const { username, email, password } = req.body;
+    if (!username || !email || !password) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
 
     // Check if the username or email already exists
     const existingUser = await User.findOne({
       where: {
-        $or: [{ username }, { email }],
+        $or: [{ username }, { email },{ password }],
       },
     });
 

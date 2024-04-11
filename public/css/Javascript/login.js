@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ email, password })
+          body: JSON.stringify({ username, password })
         });
 
         if (response.ok) {
@@ -22,23 +22,27 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           // If response is not okay, handle the error
           const errorMessage = await response.text();
-          throw new Error(errorMessage);
+          document.querySelector('#login-error').textContent = errorMessage;
         }
       } catch (error) {
         // Handle fetch or other errors
         console.error('Error:', error.message);
-        // You can display an alert or other UI to inform the user about the error
-        alert('An error occurred while logging in. Please try again later.');
+        // Display error message on the page
+        document.querySelector('#login-error').textContent = 'An error occurred while logging in. Please try again later.';
       }
     } else {
       // Handle case when email or password is missing
-      alert('Please enter both email and password.');
+      document.querySelector('#login-error').textContent = 'Please enter both email and password.';
     }
   };
 
   const signupFormHandler = async (event) => {
     event.preventDefault();
 
+    const errorMessageElement = document.getElementById('error-message');
+    if (errorMessageElement) {
+    errorMessageElement.textContent = 'An error occurred while signing up. Please try again later.';
+    }
     const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
@@ -54,14 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           document.location.replace('/login');
         } else {
-          alert(response.statusText);
+          // Handle other status codes
+          const errorMessage = await response.text();
+          document.querySelector('#signup-error').textContent = errorMessage;
         }
       } catch (error) {
         console.error('Error:', error.message);
-        alert('An error occurred while signing up. Please try again later.');
+        document.querySelector('#signup-error').textContent = 'An error occurred while signing up. Please try again later.';
       }
     } else {
-      alert('Please enter username, email, and password.');
+      document.querySelector('#signup-error').textContent = 'Please enter username, email, and password.';
     }
   };
 
