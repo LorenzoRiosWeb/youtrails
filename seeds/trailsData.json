@@ -1,9 +1,75 @@
 [
     {
+        "trail_name": "Red Castle Lake via East Fork Smiths Fork",
+        "description": "",
+        "location": "High Uintas Wilderness",
+        "conditions": "Currently covered in snow probably.",
+        "review": [{"name": "Lorenzo",
+                    "description": "Spectacular views",
+                    "date_created": "08/12/23",
+                    "body": "This trail is pretty easy going to start off. Once you get about 4 miles in it gets pretty steep, but it is worth the time!"
+                    }]
+    },
+    {
+        "trail_name": "Ensign Peak",
+        "description": "This is a relatively easy trail that gives a view of Salt Lake City looking South.",
+        "location": "Salt Lake City",
+        "conditions": "Somewhat muddy",
+        "review": [{"name": "Parker",
+                    "description": "Nice",
+                    "date_created": "04/06/24",
+                    "body": "The view is awesome. You can see Salt Lake City from above, and the Wasatch mountains." 
+                    }]
+    },
+    {
+        "trail_name": "Kings Peak via Henry's Fork Trail",
+        "description": "This trail is about 13.8 miles from Trailhead to Kings Peak, it takes you up above 13,500 feet. It's the highest peak in Utah.",
+        "location": "High Uintas Wilderness",
+        "conditions": "Also covered in snow.",
+        "review": [{"name": "Brenner",
+                    "description": "Nice",
+                    "date_created": "08/20/23",
+                    "body": "I finally summited Kings Peak, and I must say the hike was fantastic." 
+                    }]
+    },
+    {
+        "trail_name": "Broads Fork Twin Peaks",
+        "description": "",
+        "location": "Big Cottonwood Canyon",
+        "conditions": "",
+<<<<<<< HEAD
+        "review": [{"name": "Patrick",
+                    "description": "Nice",
+                    "date_created": "06/29/23",
+                    "body": "This was a really cool hike. There's so much to see up here, beautiful lakes and meadows all around." 
+                    }]
+    },
+    {
+        "trail_name": "Mt Ogden via Beus Canyon Trailhead",
+        "description": "This trail climbs up Beus Canyon, where it intersects the Bonneville Shoreline Trail. The trail continues along Beus Canyon",
+        "location": "Ogden",
+        "conditions": "Snowy and muddy",
+        "review": [{"name": "Sally",
+                    "description": "Sweet!",
+                    "date_created": "10/16/23",
+                    "body": "I love this trail. It is fairly difficult, so make sure you practice other trails first. The views of the Wasatch Front and the Ogden Valley/Huntsville area is breathtaking." 
+                    }]
+=======
+        "review": ""
+>>>>>>> 744b523aba1ee4c091de16ad32174ba10cb04859
+    },
+    {
         "trail_name": "",
         "description": "",
         "location": "",
         "conditions": "",
+<<<<<<< HEAD
+        "review": [{"name": "",
+                    "description": "",
+                    "date_created": "",
+                    "body": "" 
+                    }]
+=======
         "review": ""
     },
     {
@@ -27,6 +93,8 @@
         "conditions": "",
         "review": ""
     },
+<<<<<<< HEAD
+=======
     {
         "trail_name": "",
         "description": "",
@@ -34,11 +102,13 @@
         "conditions": "",
         "review": ""
     },
+>>>>>>> 744b523aba1ee4c091de16ad32174ba10cb04859
     {
         "trail_name": "",
         "description": "",
         "location": "",
         "conditions": "",
         "review": ""
+>>>>>>> 744b523aba1ee4c091de16ad32174ba10cb04859
     }
 ]
