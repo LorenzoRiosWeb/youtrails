@@ -2,6 +2,9 @@
     --nav-color: #2f2c53;
     --main-color: #476c2a;
     --secondary-color: #549634;
+    --transparent: rgba(255, 255, 255, 0.9);
+    --box-shadow: rgba(0, 0, 0, 0.1);
+    --light: #ffffff;
 }
 
 
@@ -26,13 +29,13 @@
 }
 
 a.navbar-item {
-    color: rgb(241, 239, 239);
+    color: var(--light);
     font-size: 20px;
     text-align: center;
 }
 
 a.navbar-item:hover {
-    color: white;
+    color: var(--light);
     transition: .2s; /* Added 's' for seconds */
     border-radius: 10px;
     background-color: var(--nav-color);
@@ -44,14 +47,14 @@ a.navbar-item:hover {
     position: relative;
     background-color: var(--nav-color);
     text-align: center;
-    color: white;
+    color: var(--light);
     float: right;
 }
 
 /* Layout Styles */
 footer {
-    background-color: #333; /* Footer background color */
-    color: #fff; /* Text color for the footer */
+    background-color: var(--transparent); /* Footer background color */
+    color: var(--light); /* Text color for the footer */
     text-align: center;
     padding: 10px 0;
 }
@@ -118,7 +121,7 @@ h1 {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4; /* Background color for the main container */
+    background-color: var(--light); /* Background color for the main container */
 }
   
 .login-container {
@@ -130,7 +133,7 @@ h1 {
     background-size: cover; /* Make sure the image covers the entire container */
     background-position: center; /* Center the background image */
     background-attachment: fixed; /* Fix the background image while scrolling */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+    box-shadow: 0px 0px 10px var(--box-shadow); /* Box shadow for a subtle elevation effect */
 }
   
 .overlay {
@@ -146,7 +149,7 @@ h1 {
     width: calc(50% - 20px); /* Set the width of each form box to half minus padding */
     padding: 20px;
     margin: 10px 10px 24px; /* Add margin between the form boxes */
-    background-color: rgba(255, 255, 255, 0.9); /* Background color for the overlay */
+    background-color: var(--transparent); /* Background color for the overlay */
     border-radius: 10px;
 }
   
@@ -157,7 +160,7 @@ h1 {
 .button {
     width: 100%;
     background-color: var(--secondary-color); /* Button background color */
-    color: white;
+    color: var(--light);
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -185,7 +188,7 @@ h1 {
     background-size: cover; /* Make sure the image covers the entire container */
     background-position: center; /* Center the background image */
     background-attachment: fixed; /* Fix the background image while scrolling */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+    box-shadow: 0px 0px 10px var(--box-shadow); /* Box shadow for a subtle elevation effect */
 }
 
 .contact-desc {
@@ -203,14 +206,14 @@ h1 {
     background-size: cover; /* Make sure the image covers the entire container */
     background-position: center; /* Center the background image */
     background-attachment: fixed; /* Fix the background image while scrolling */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+    box-shadow: 0px 0px 10px var(--box-shadow); /* Box shadow for a subtle elevation effect */
 }
 
 .desc-box {
     width: calc(50% - 20px); /* Set the width of each form box to half minus padding */
     padding: 20px;
     margin: auto; /* Add margin between the form boxes */
-    background-color: rgba(255, 255, 255, 0.9); /* Background color for the overlay */
+    background-color: var(--transparent); /* Background color for the overlay */
     border-radius: 10px;
     min-width: 300px;
     font-size: x-large;
