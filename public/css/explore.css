@@ -52,3 +52,8 @@ a.navbar-item:hover{
     object-fit: cover;
 }
  
+.card-title {
+    color: black;
+    font-weight: bolder;
+    text-decoration: underline;
+}

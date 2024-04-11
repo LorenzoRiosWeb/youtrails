@@ -1,7 +1,28 @@
 [
     {
+
         "username": "",
         "email": "",
         "password": ""
+=======
+        "name": "Parker",
+        "email": "test@test1.com",
+        "password": "uj789"
+    },
+    {
+        "name": "Patrick",
+        "email": "test@test2.com",
+        "password": "ik456"
+    },
+    {
+        "name": "Lorenzo",
+        "email": "test@test3.com",
+        "password": "ol123"
+    },
+    {
+        "name": "Brenner",
+        "email": "test@test4.com",
+        "password": "yh789"
+
     }
 ]
