@@ -35,7 +35,7 @@ a.navbar-item {
 a.navbar-item:hover {
     color: var(--light);
     transition: .2s; /* Added 's' for seconds */
-    bbackground-color: var(--nav-color);
+    background-color: var(--nav-color);
     font-size: 25px;
     text-decoration: underline;
 }
@@ -205,3 +205,4 @@ h1 {
     border-radius: 10px;
     min-width: 300px;
 }
+
