@@ -1,5 +1,10 @@
 [
     {
+
+        "username": "",
+        "email": "",
+        "password": ""
+=======
         "name": "Parker",
         "email": "test@test1.com",
         "password": "uj789"
@@ -18,5 +23,6 @@
         "name": "Brenner",
         "email": "test@test4.com",
         "password": "yh789"
+
     }
 ]
