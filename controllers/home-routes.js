@@ -2,9 +2,18 @@ const router = require('express').Router();
 const { Trail, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Route to render the login page by default
+router.get('/', (req, res) => {
+  // If the user is already logged in, redirect to the explore page
+  if (req.session.logged_in) {
+    res.redirect('/explore');
+  } else {
+    res.render('login');
+  }
+});
 
-// (GET 3001/trails)
-router.get('/', async (req, res) => {
+// Route to render the explore page with trails
+router.get('/explore', async (req, res) => {
   try {
     // Get all trails
     const trailData = await Trail.findAll();
@@ -21,35 +30,22 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-// GET (3001/trails/:id)
-router.get('/trails/:id', async (req, res) => {
-  try {
-    const trailData = await Trail.findByPk(req.params.id, {
-      include: [
-        {
-          model: trail,
-          attributes: ['trail_name', 'description', 'condition', 'location', 'review'],
-        },
-      ],
-    });
 
-    const trail = trailData.get({ plain: true });
-
-    res.render('trail', {
-      ...trail,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+// Route to render the signup page
+router.get('/signup', (req, res) => {
+  res.render('signup');
 });
 
+// Route to render trails for a specific user
 router.get('/user/:id', withAuth, async (req, res) => {
   try {
     // Find the user by ID
     const userData = await User.findByPk(req.params.id, {
-      // Exclude sensitive information like password
-      attributes: { exclude: ['password'] }
+      include: [
+        {
+          model: Trail
+        }
+      ]
     });
 
     if (!userData) {
@@ -62,23 +58,14 @@ router.get('/user/:id', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     // Send the user data as JSON response
-    res.status(200).json(user);
+    res.render('user-profile', {
+      user,
+      logged_in: true
+    });
   } catch (err) {
     // Handle server errors
     console.error(err);
     res.status(500).json({ error: 'Failed to fetch user data' });
-  }
-});
-
-// 3001/login : if logged in will then redirect to /explore
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('explore');
-    return;
-  } else {
-    
-    res.render('login');
   }
 });
 
