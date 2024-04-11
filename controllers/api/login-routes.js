@@ -1,38 +1,42 @@
+// controllers/api/login-routes.js
 const router = require('express').Router();
-const { User, Trails, Review } = require('../../models');
+const { User } = require('../../models');
 
-// Login route
-router.post('/login', async (req, res) => {
-    try {
-        // Check if the request body contains both username and password
-        const { username, password } = req.body;
-        if (!username || !password) {
-            return res.status(400).json({ message: 'Username and password are required.' });
-        }
+// Route to log in a user (POST /api/login)
+router.post('/', async (req, res) => {
+  try {
+    const user = await User.findOne({ where: { email: req.body.email } });
 
-        // Find the user by username and password in the database
-        const user = await User.findOne({ 
-            where: { username, password }
-        });
-
-        // If user doesn't exist or password is incorrect, return error
-        if (!user) {
-            return res.status(401).json({ message: 'Incorrect username or password.' });
-        }
-
-        // Set the session variables for the authenticated user
-        req.session.user = {
-            id: user.id,
-            username: user.username,
-            // Add more user data to session as needed
-        };
-
-        res.status(200).json({ message: 'Login successful.', user: req.session.user });
-
-    } catch (err) {
-        console.error('Error during login:', err);
-        res.status(500).json({ message: 'Internal server error.' });
+    if (!user || !user.checkPassword(req.body.password)) {
+      res.status(400).json({ error: 'Incorrect email or password' });
+      return;
     }
+
+    // Set loggedIn session to true
+    req.session.loggedIn = true;
+
+    res.status(200).json(user);
+  } catch (err) {
+    console.error('Error logging in:', err);
+    res.status(500).json({ error: 'Failed to log in' });
+  }
 });
+
+router.post('/logout', (req, res) => {
+    try {
+      if (req.session.loggedIn) {
+        // Destroy the session
+        req.session.destroy(() => {
+          // Redirect the user to the login page or any other desired route
+          res.status(204).end();
+        });
+      } else {
+        res.status(401).json({ error: 'You are not logged in' });
+      }
+    } catch (err) {
+      console.error('Error logging out:', err);
+      res.status(500).json({ error: 'Failed to log out' });
+    }
+  });
 
 module.exports = router;

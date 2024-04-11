@@ -1,6 +1,14 @@
+:root {
+    --nav-color: #2f2c53;
+    --main-color: #476c2a;
+    --secondary-color: #549634;
+    --transparent: rgba(255, 255, 255, 0.9);
+    --box-shadow: rgba(0, 0, 0, 0.1);
+    --light: #ffffff;
+}
 /* Navbar Styles */
 #navbar-menu {
-    background-color: #63009c;
+    background-color: var(--nav-color);
     padding: 10px;
     display: flex;
     
@@ -19,32 +27,31 @@
 }
 
 a.navbar-item {
-    color: rgb(241, 239, 239);
+    color: var(--light);
     font-size: 20px;
     text-align: center;
 }
 
 a.navbar-item:hover {
-    color: white;
+    color: var(--light);
     transition: .2s; /* Added 's' for seconds */
-    border-radius: 10px;
-    background-color: #63009c;
+    bbackground-color: var(--nav-color);
     font-size: 25px;
     text-decoration: underline;
 }
 
 .greeting {
     position: relative;
-    background-color: #63009c;
+    background-color: var(--nav-color);
     text-align: center;
-    color: white;
+    color: var(--light);
     float: right;
 }
 
 /* Layout Styles */
 footer {
-    background-color: #333; /* Footer background color */
-    color: #fff; /* Text color for the footer */
+    background-color: #222; /* Footer background color */
+    color: var(--light); /* Text color for the footer */
     text-align: center;
     padding: 10px 0;
 }
@@ -149,8 +156,8 @@ h1 {
   
 .button {
     width: 100%;
-    background-color: #4caf50; /* Button background color */
-    color: white;
+    background-color: var(--secondary-color); /* Button background color */
+    color: var(--light);
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -187,14 +194,14 @@ h1 {
     background-size: cover; /* Make sure the image covers the entire container */
     background-position: center; /* Center the background image */
     background-attachment: fixed; /* Fix the background image while scrolling */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+    box-shadow: 0px 0px 10px var(--box-shadow); /* Box shadow for a subtle elevation effect */
 }
 
 .desc-box {
     width: calc(50% - 20px); /* Set the width of each form box to half minus padding */
     padding: 20px;
     margin: auto; /* Add margin between the form boxes */
-    background-color: rgba(255, 255, 255, 0.9); /* Background color for the overlay */
+    background-color: var(--transparent); /* Background color for the overlay */
     border-radius: 10px;
     min-width: 300px;
 }
