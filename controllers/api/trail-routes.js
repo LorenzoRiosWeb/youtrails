@@ -1,12 +1,12 @@
 // controllers/api/trail-routes.js
 const router = require('express').Router();
-const { Trail } = require('../../models'); // Importing the Trail model
+const { Trails } = require('../../models'); // Importing the Trail model
 
 // GET all trails and their associated comments (GET /api/trails)
 router.get('/', async (req, res) => {
   try {
     // Fetch all trails with their associated comments
-    const trails = await Trail.findAll({
+    const trails = await Trails.findAll({
       attributes: ['id', 'trail_name', 'description', 'location', 'condition', 'review'], // Include specific attributes of the Trail model
     });
 
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     // Fetch the trail by ID with its associated comments
-    const trail = await Trail.findByPk(req.params.id, {
+    const trail = await Trails.findByPk(req.params.id, {
       attributes: ['id', 'trail_name', 'description', 'location', 'condition', 'review'], // Include specific attributes of the Trail model
     });
 
@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     // Create a new trail in the database
-    const newTrail = await Trail.create({
+    const newTrail = await Trails.create({
       trail_name: req.body.trail_name,
       description: req.body.description,
       location: req.body.location,

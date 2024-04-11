@@ -1,4 +1,5 @@
 const path = require('path');
+const env = require('dotenv');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -14,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 // Session configuration
 const sess = {
-  secret: 'Super Secret!',
+  secret: process.env.SECRET_SESS,
   cookie: {
     httpOnly: true,
     secure: false, // Change to true if served over HTTPS
