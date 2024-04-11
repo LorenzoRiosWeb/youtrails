@@ -1,0 +1,61 @@
+.navbar-menu {
+  background-color: rgb(159, 49, 223);
+  padding: 10px;
+}
+
+.navbar-item {
+  color: rgb(241, 239, 239);
+  font-size: 20px;
+  text-align: center;
+}
+
+.navbar-item:hover {
+  color: white;
+  transition: .2s;
+  border-radius: 10px;
+  background-color: rgb(182, 124, 216);
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.login-container {
+  position: absolute;
+}
+
+.login-form {
+  position: absolute;
+  width: 40%;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.signup-form {
+  position: absolute;
+  width: 40%;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.199); /* Adjust the transparency here */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15%;
+}
+
+.overlay .columns {
+  margin: 0;
+}
+
+.button {
+  color: white;
+  background-color: rgb(159, 49, 223);
+}

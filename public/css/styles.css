@@ -46,7 +46,10 @@ a.navbar-item:hover {
     color: var(--light);
     color: var(--light);
     transition: .2s; /* Added 's' for seconds */
+<<<<<<< HEAD
     border-radius: 10px;
+=======
+>>>>>>> 1f63ad0daa423ffbef37dd74497326722786c4f6
     background-color: var(--nav-color);
     font-size: 25px;
     text-decoration: underline;
@@ -225,5 +228,10 @@ h1 {
     background-color: var(--transparent); /* Background color for the overlay */
     border-radius: 10px;
     min-width: 300px;
+<<<<<<< HEAD
     font-size: x-large;
 }
+=======
+}
+
+>>>>>>> 1f63ad0daa423ffbef37dd74497326722786c4f6
