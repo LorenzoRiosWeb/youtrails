@@ -53,7 +53,7 @@ a.navbar-item:hover {
 
 /* Layout Styles */
 footer {
-    background-color: var(--transparent); /* Footer background color */
+    background-color: #222; /* Footer background color */
     color: var(--light); /* Text color for the footer */
     text-align: center;
     padding: 10px 0;
