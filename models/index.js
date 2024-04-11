@@ -8,7 +8,7 @@ const Comments = require('./Comments');
 //     foreignKey: 'user_id',
 //     onDelete: 'CASCADE'
 // });
-=======
+
 
 Trails.hasMany(Review, {
     foreignKey: 'user_id',
@@ -24,7 +24,7 @@ Trails.hasMany(Review, {
 User.belongsTo(User, {
     foreignKey: 'user_id'  
 });
-=======
+
 // User.hasOne(id, {
 //     foreignKey: 'user_id'  
 // });
