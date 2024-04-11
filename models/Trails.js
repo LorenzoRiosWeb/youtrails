@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const Review = require('./Review');
 
+const Review = require('./Review');
 class Trails extends Model { }
 
 Trails.init(
