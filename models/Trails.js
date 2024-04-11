@@ -28,6 +28,9 @@ Trails.init(
         },
         review: {
             type: DataTypes.STRING,
+            body: [
+                "name", "description", ""
+            ],
         }
     },
     {
