@@ -37,6 +37,7 @@
         "description": "",
         "location": "Big Cottonwood Canyon",
         "conditions": "",
+<<<<<<< HEAD
         "review": [{"name": "Patrick",
                     "description": "Nice",
                     "date_created": "06/29/23",
@@ -53,16 +54,51 @@
                     "date_created": "10/16/23",
                     "body": "I love this trail. It is fairly difficult, so make sure you practice other trails first. The views of the Wasatch Front and the Ogden Valley/Huntsville area is breathtaking." 
                     }]
+=======
+        "review": ""
+>>>>>>> 744b523aba1ee4c091de16ad32174ba10cb04859
     },
     {
         "trail_name": "",
         "description": "",
         "location": "",
         "conditions": "",
+<<<<<<< HEAD
         "review": [{"name": "",
                     "description": "",
                     "date_created": "",
                     "body": "" 
                     }]
+=======
+        "review": ""
+    },
+    {
+        "trail_name": "",
+        "description": "",
+        "location": "",
+        "conditions": "",
+        "review": ""
+    },
+    {
+        "trail_name": "",
+        "description": "",
+        "location": "",
+        "conditions": "",
+        "review": ""
+    },
+    {
+        "trail_name": "",
+        "description": "",
+        "location": "",
+        "conditions": "",
+        "review": ""
+    },
+    {
+        "trail_name": "",
+        "description": "",
+        "location": "",
+        "conditions": "",
+        "review": ""
+>>>>>>> 744b523aba1ee4c091de16ad32174ba10cb04859
     }
 ]

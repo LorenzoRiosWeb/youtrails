@@ -1,65 +1,69 @@
+// controllers/api/user-routes.js
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// CREATE new user
-router.post('/', async (req, res) => {
+// Route to sign up a new user (POST /api/signup)
+
+// Route to sign up a new user
+router.post('/signup', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
+    // Extract user input from request body
+    const { name, email, password } = req.body;
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json(dbUserData);
-    });
-  } catch (err) {
-    console.error('Error creating user:', err);
-    res.status(400).json({ message: 'Error creating user.' });
-  }
-});
-
-// Login
-router.post('/login', async (req, res) => {
-  try {
-    const dbUserData = await User.findOne({
+    // Check if the username or email already exists
+    const existingUser = await User.findOne({
       where: {
-        email: req.body.email,
+        $or: [{ name }, { email }],
       },
     });
 
-    if (!dbUserData) {
-      return res.status(400).json({ message: 'Incorrect email or password.' });
+    if (existingUser) {
+      // User with the same username or email already exists
+      return res.status(400).json({ message: 'User with the same username or email already exists' });
     }
 
-    const validPassword = await dbUserData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      return res.status(400).json({ message: 'Incorrect email or password.' });
-    }
-
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json({ user: dbUserData, message: 'Logged in successfully.' });
+    // Create a new user
+    const newUser = await User.create({
+      name,
+      email,
+      password, // Make sure to hash the password before storing it in the database
     });
+
+    // Set loggedIn session variable to true after successful signup
+    req.session.loggedIn = true;
+
+    // Send a success response
+    res.status(201).json({ message: 'User created successfully', user: newUser });
+  } catch (err) {
+    // Handle errors
+    console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+// Route to log in a user (POST /api/login)
+router.post('/login', async (req, res) => {
+  try {
+    const user = await User.findOne({ where: { email: req.body.email } });
+
+    if (!user || !user.checkPassword(req.body.password)) {
+      // If user does not exist or password is incorrect, return error
+      return res.status(400).json({ error: 'Incorrect email or password' });
+    }
+
+    // Set loggedIn session to true
+    req.session.loggedIn = true;
+
+    // Remove the password hash from the user object before sending it in the response
+    const { password, ...userData } = user.toJSON();
+
+    res.status(200).json(userData); // Send user data without password
   } catch (err) {
     console.error('Error logging in:', err);
-    res.status(400).json({ message: 'Error logging in.' });
+    res.status(500).json({ error: 'Failed to log in' });
   }
 });
 
-// Logout
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
 
 module.exports = router;
