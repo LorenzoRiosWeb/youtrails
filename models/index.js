@@ -21,6 +21,12 @@ Trails.hasMany(Review, {
 // });
 
 
+
+User.hasOne(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
 User.belongsTo(User, {
     foreignKey: 'user_id'  
 });
@@ -32,6 +38,7 @@ User.belongsTo(User, {
 // id.belongsTo(User, {
 //     foreignKey: 'user_id'
 // });
+
 
 
 // Review.belongsTo(User, {
