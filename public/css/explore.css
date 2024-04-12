@@ -26,12 +26,12 @@ a.navbar-item:hover{
 }
 
 .title {
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
 }
 
 .subtitle {
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
 }
 
