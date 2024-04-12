@@ -1,7 +1,17 @@
-// controllers/api/contact-routes.js
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
 require('dotenv').config();
+
+// Route to handle GET request for contact page
+router.get('/contact', (req, res) => {
+  try {
+    // Render the contact page view
+    res.render('contact');
+  } catch (err) {
+    console.error('Error rendering contact page:', err);
+    res.status(500).json({ error: 'Failed to render contact page' });
+  }
+});
 
 // Route to handle contact form submission (POST /api/contact)
 router.post('/', async (req, res) => {
