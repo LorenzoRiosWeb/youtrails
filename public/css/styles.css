@@ -208,6 +208,10 @@ h1 {
 }
   
 /* Contact Page */
+.contact-box {
+    height: 500px;
+}
+
 .contact-container {
     position: relative;
     width: 100%;
