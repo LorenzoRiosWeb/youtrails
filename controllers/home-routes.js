@@ -1,72 +1,81 @@
 const router = require('express').Router();
-const { Trail, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { User, Trails, Comments } = require('../models');
+const auth = require('../utils/auth'); 
 
-// Route to render the login page by default
-router.get('/', (req, res) => {
-  // If the user is already logged in, redirect to the explore page
-  if (req.session.logged_in) {
-    res.redirect('/explore');
-  } else {
-    res.render('login');
-  }
-});
-
-// Route to render the explore page with trails
-router.get('/explore', async (req, res) => {
-  try {
-    // Get all trails
-    const trailData = await Trail.findAll();
-
-    // Serialize trail data
-    const trails = trailData.map(trail => trail.get({ plain: true }));
-
-    // Render the explore page with trails
-    res.render('explore', {
-      trails,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Route to render the signup page
-router.get('/signup', (req, res) => {
-  res.render('signup');
-});
-
-// Route to render trails for a specific user
-router.get('/user/:id', withAuth, async (req, res) => {
-  try {
-    // Find the user by ID
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: Trail
-        }
-      ]
-    });
-
-    if (!userData) {
-      // If user not found, return 404
-      res.status(404).json({ message: 'User not found' });
-      return;
+router.get('/', async (req, res) => {
+    try {
+        const trailsData = await Trails.findAll({ 
+        });
+        const trails = trailsData.map(trail => trail.get({ plain: true }));
+        
+        res.render('explore', {
+            logged_in: req.session.logged_in, 
+        });
+    } catch (err) {
+        console.error(err); 
+        res.status(500).json(err);
     }
+});
 
-    // Serialize user data
-    const user = userData.get({ plain: true });
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
 
-    // Send the user data as JSON response
-    res.render('user-profile', {
-      user,
-      logged_in: true
-    });
-  } catch (err) {
-    // Handle server errors
-    console.error(err);
-    res.status(500).json({ error: 'Failed to fetch user data' });
-  }
+router.get('/signup',  (req, res)=> {
+    try {
+        res.render('signUp');
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+router.get('/about',  (req, res)=> {
+    try {
+        res.render('about');
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+router.get('/contact',  (req, res)=> {
+    try {
+        res.render('contact');
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+router.get('/trails',  (req, res)=> {
+    try {
+        res.render('trails');
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get('/trails/:id', async (req, res) => {
+    try {
+        const trail = await Trails.findByPk(req.params.id, {
+            include: [
+                { model: User },
+                { model: Comments, include: [{ model: User, attributes: ['user_name'] }] }
+            ]
+        });
+        const singleTrail = trail.get({ plain: true });
+        
+        res.render('trail', {
+            singleTrail,
+            logged_in: req.session.logged_in, 
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({ error: err, message: "Something went wrong." });
+    }
 });
 
 module.exports = router;

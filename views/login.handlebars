@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/login.css">
 <div class="columns is-vcentered login-container">
   <div class="column is-half">
-    <form class="box login-form" id="login-form">
+    <form class="box login-form" id="login-form" method="POST">
       <div class="field">
         <label for="email-login" class="label">Email:</label>
         <div class="control">
@@ -20,11 +20,11 @@
       <div class="field">
         <button class="button btn-primary login-button" type="submit">Sign in</button>
       </div>
-       <!-- Display login errors here -->
+      <!-- Display login errors here -->
     </form>
   </div>
   <div class="column is-half">
-    <form class="box signup-form" id="signup-form">
+    <form class="box signup-form" id="signup-form" method="POST">
       <div class="field">
         <label for="username-signup" class="label">Username:</label>
         <div class="control">
@@ -45,7 +45,8 @@
       </div>
       <div class="field">
         <button class="button btn-primary login-button" type="submit">Sign up</button>
-      </div><!-- Display signup errors here -->
+      </div>
+      <!-- Display signup errors here -->
     </form>
   </div>
 </div>

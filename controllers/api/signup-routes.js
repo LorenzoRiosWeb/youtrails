@@ -13,7 +13,7 @@ router.post('/signup', async (req, res) => {
     // Check if the username or email already exists
     const existingUser = await User.findOne({
       where: {
-        $or: [{ username }, { email },{ password }],
+        $or: [{ username }, { email }],
       },
     });
 
