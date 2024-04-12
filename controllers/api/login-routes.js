@@ -2,41 +2,32 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // Route to log in a user (POST /api/login)
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
-    const user = await User.findOne({ where: { email: req.body.email } });
+    const { email, password } = req.body;
 
-    if (!user || !user.checkPassword(req.body.password)) {
-      res.status(400).json({ error: 'Incorrect email or password' });
+    // Check if email and password are provided
+    if (!email || !password) {
+      res.status(400).json({ message: 'Please provide both email and password' });
       return;
     }
 
-    // Set loggedIn session to true
-    req.session.loggedIn = true;
+    // Find the user by email
+    const user = await User.findOne({ where: { email } });
 
-    res.status(200).json(user);
+    // If user not found or password does not match, return error
+    if (!user || !(await user.checkPassword(password))) {
+      res.status(401).json({ message: 'Invalid email or password' });
+      return;
+    }
+
+    // Set user session and redirect to explore page
+    req.session.user_id = user.id;
+    res.redirect('/explore'); // Redirect to explore page after successful login
   } catch (err) {
-    console.error('Error logging in:', err);
-    res.status(500).json({ error: 'Failed to log in' });
+    console.error('Login error:', err);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
-
-
-router.post('/logout', (req, res) => {
-    try {
-      if (req.session.loggedIn) {
-        // Destroy the session
-        req.session.destroy(() => {
-          // Redirect the user to the login page or any other desired route
-          res.status(204).end();
-        });
-      } else {
-        res.status(401).json({ error: 'You are not logged in' });
-      }
-    } catch (err) {
-      console.error('Error logging out:', err);
-      res.status(500).json({ error: 'Failed to log out' });
-    }
-  });
 
 module.exports = router;

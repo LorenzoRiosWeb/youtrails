@@ -3,24 +3,24 @@
 
         "username": "",
         "email": "",
-        "password": ""
-=======
-        "name": "Parker",
+        "password": "",
+
+        "username": "Parker",
         "email": "test@test1.com",
         "password": "uj789"
     },
     {
-        "name": "Patrick",
+        "username": "Patrick",
         "email": "test@test2.com",
         "password": "ik456"
     },
     {
-        "name": "Lorenzo",
+        "username": "Lorenzo",
         "email": "test@test3.com",
         "password": "ol123"
     },
     {
-        "name": "Brenner",
+        "username": "Brenner",
         "email": "test@test4.com",
         "password": "yh789"
 
