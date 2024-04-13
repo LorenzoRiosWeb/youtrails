@@ -1,24 +1,17 @@
 # You-Trails
 
-- basic outline still needs overview,getting started, and features to be filled in.
-
 ## Overview
 
+Welcome to YouTrails, our trail app designed to help you explore the beautiful hiking trails near Salt Lake City! Whether you're a seasoned hiker looking for new challenges or a beginner seeking scenic paths, YouTrails provides comprehensive information about various hikes, including stunning pictures, trail lengths, and difficulty levels. Get ready to immerse yourself in nature and discover the perfect adventure for your next outdoor excursion!
 
-[Explore You-Trails](link to heroku goes here)
+[Explore You-Trails]([link to heroku goes here](https://youtrails-bb9de3788676.herokuapp.com))
 
 ## Table of Contents
 - [Overview](#overview)
-- [Getting Started](#getting-started)
-- [Features](#features)
 - [Contributing](#contributing)
 - [License](#license)
 - [Questions](#questions)
 - [Contributors](#contributors)
-
-## Getting Started
-
-## Features
 
 ## Contributing
 
